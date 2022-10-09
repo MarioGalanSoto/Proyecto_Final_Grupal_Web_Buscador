@@ -11,7 +11,7 @@ namespace Proyecto_Final_Grupal_Buscador
 {
 
 
-    public partial class Buscador_de_productos
+    public partial class Resultados_Busqueda
     {
 
         /// <summary>
@@ -24,22 +24,13 @@ namespace Proyecto_Final_Grupal_Buscador
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// logoImage control.
+        /// tbSearch2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image logoImage;
-
-        /// <summary>
-        /// tbSearch1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbSearch1;
+        protected global::System.Web.UI.WebControls.TextBox tbSearch2;
 
         /// <summary>
         /// Button1 control.
@@ -49,23 +40,5 @@ namespace Proyecto_Final_Grupal_Buscador
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
     }
 }

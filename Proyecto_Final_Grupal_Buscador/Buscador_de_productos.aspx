@@ -6,14 +6,10 @@
     <head runat="server">
         <title>Buscador eat shop</title>
         <link rel="stylesheet" href="BuscadorStyleSheet.css"/>
-        <link rel="icon" href="eat-shop-logo.png"/>
+        <link rel="icon" href="eat-shop-icon.png"/>
         <style type="text/css">
-  
 
-            .auto-style1 {
-                height: 46px;
-                width: 5%;
-            }
+
   
 
         </style>
@@ -26,19 +22,22 @@
 
                     <div id="logoBuscador">
 
-                        <asp:Image src="eat-shop-icon.png" ID='logoImage' alt="logo" runat="server" />
+                        <asp:Image src="eat-shop-logo.png" ID='logoImage' alt="logo" runat="server" />
 
                         <br />
                         <br />
                         <br />
                         <br />
 
-                        <input type="text" id="search" placeholder="Type here to search a product" autocomplete="off"  />&nbsp;&nbsp;
-                        <input ID="btnBuscar1" runat="server" Text="Buscar" type="Image" src="BuscadorLogo.png" OnClick="btnBuscar_Click" class="auto-style1"/>
+                        
+
+                        <asp:TextBox ID="tbSearch1" class="tbSearch" placeholder="Type here to search a product" autocomplete="off" runat="server"></asp:TextBox>
+
+                        
+
+                        <asp:Button type="Image" ID="Button1" runat="server" Text="Search 🔍" OnClick="Button1_Click" class="SearchButtons"></asp:Button>
 
                     </div>
-
-                    
                 </div>
 
                 <br />

@@ -70,8 +70,9 @@
     <Content Include="BuscadorLogo.png" />
     <Content Include="BuscadorStyleSheet.css" />
     <Content Include="Buscador_de_productos.aspx" />
-    <Content Include="eat-shop-icon.png" />
     <Content Include="eat-shop-logo.png" />
+    <Content Include="eat-shop-icon.png" />
+    <Content Include="Resultados_Busqueda.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +84,13 @@
       <DependentUpon>Buscador_de_productos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resultados_Busqueda.aspx.cs">
+      <DependentUpon>Resultados_Busqueda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resultados_Busqueda.aspx.designer.cs">
+      <DependentUpon>Resultados_Busqueda.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
