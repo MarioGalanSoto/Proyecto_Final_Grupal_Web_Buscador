@@ -37,8 +37,6 @@
                         <input ID="btnBuscar1" runat="server" Text="Buscar" type="Image" src="BuscadorLogo.png" OnClick="btnBuscar_Click" class="auto-style1"/>
 
                     </div>
-
-                    
                 </div>
 
                 <br />

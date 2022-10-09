@@ -35,7 +35,7 @@
     border-radius: 6rem;
     outline: none;
     box-shadow: 0 0 7px 2px rgba(32, 13, 66, 0.329);
-
+    border: none;
     width: 20%;
     padding: 10px;
     font-family: Arial;
