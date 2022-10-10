@@ -70,18 +70,17 @@
             <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
             <br />
-            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Add to cart  🛒" Class="SearchButtons" />
 &nbsp;<br />
-            <br />
-            
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="556px" HorizontalAlign="Center" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDataBound="GridView2_RowDataBound"  OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="832px">
+                    <asp:Button ID="Button2" runat="server" Class="SearchButtons" OnClick="Button2_Click" Text="Add to cart  🛒" />
+                    <br />
+                    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="556px" HorizontalAlign="Center" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowDataBound="GridView2_RowDataBound" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="832px">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="ProductName" HeaderText="ProductName" SortExpression="ProductName" />
                             <asp:BoundField DataField="UnitPrice" HeaderText="UnitPrice" SortExpression="UnitPrice" />
                             <asp:BoundField DataField="UnitInStock" HeaderText="UnitInStock" SortExpression="UnitInStock" />
-                            <asp:ButtonField ButtonType="Button" CommandName="Cancel" Text="Delete" />
                         </Columns>
                         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -93,13 +92,21 @@
                         <SortedDescendingCellStyle BackColor="#FCF6C0" />
                         <SortedDescendingHeaderStyle BackColor="#820000" />
                     </asp:GridView>
+                    
+                    <br />
+                    
+                    <asp:Button ID="Button3" runat="server" Class="SearchButtons" OnClick="Button3_Click" Text="Delete ❌" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <br />
+            
+                <ContentTemplate>
                     <br />
                     <br />
                 </ContentTemplate>
             
             <br />
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:NorthwindConnectionString %>" SelectCommand="SELECT [ProductName], [UnitPrice], [UnitInStock] FROM [cartTable]"></asp:SqlDataSource>
-                    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Delete ❌" Class="SearchButtons" />
             <br />
         <br><asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NorthwindConnectionString %>" SelectCommand="SELECT [ProductName], [UnitPrice], [UnitsInStock] FROM [Alphabetical list of products]"></asp:SqlDataSource>
             </div>

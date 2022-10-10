@@ -33,7 +33,13 @@ namespace Proyecto_Final_Grupal_Buscador
             GridView1.DataBind();
 
         }
-        
+        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView2.PageIndex = e.NewPageIndex;
+            GridView2.DataBind();
+
+        }
+
         public void Page_Load(object sender, EventArgs e)
         {
             if (!(Session["busqueda"].ToString() == ""))
@@ -48,12 +54,7 @@ namespace Proyecto_Final_Grupal_Buscador
 
 
             }
-            /*else if(Session["busqueda"].ToString() != tbSearch2.Text) {
-                ProductsDataTable productos = adapter.GetDataByCriterio(tbSearch2.Text);
-                GridView1.DataSourceID = "";
-                GridView1.DataSource = productos;
-                GridView1.DataBind();
-            }*/
+
             else {
                 ProductsDataTable productos = adapter.GetData();
                 GridView1.DataSourceID = "";
@@ -94,28 +95,7 @@ namespace Proyecto_Final_Grupal_Buscador
             }
         }
 
-
-
-/*        protected void lnkBtnReadyToServeAdd_Click(object sender, EventArgs e)
-        {
-            DataTable dtCart = (DataTable)Session["sessiondtCart"];
-            foreach (DataRow row in dtCart.Rows)
-            {
-                if (row["ProductName"] == Label1.Text) //check if already exists
-                {
-                    //now we know we need to increment the quantity, because it's already in the cart
-                    int quantity = row["TotalPrice"] / int.Parse();
-                    row["TotalPrice"] = quantity + int.Parse(txtQuantity.Text);
-                }
-                else
-                {
-                    //now we know the item wasn't in the cart, so we need to add it
-                    dtCart.Rows.Add(lblProductName.Text, lblProductPrice.Text, txtQuantity.Text, imgk1.ImageUrl, int.Parse(lblProductPrice.Text) * int.Parse(txtQuantity.Text));
-                }
-            }
-
-            Session["sessiondtCart"] = dtCart;
-        }*/
+        //Selector handler of GridView 1
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             
@@ -151,50 +131,40 @@ namespace Proyecto_Final_Grupal_Buscador
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            cartTableTableAdapter cartAdapter = new cartTableTableAdapter();
-
-            if ((GridView1.SelectedRow.Cells[1].Text != null))
+            
+            try
             {
-                cartTableDataTable productos = cartAdapter.GetData();
-                GridView2.DataSourceID = "";
-                GridView2.DataSource = productos;
-                GridView2.DataBind();
-                string a = GridView1.SelectedRow.Cells[0].Text;
-                string b = GridView1.SelectedRow.Cells[1].Text;
-                string c = GridView1.SelectedRow.Cells[2].Text;
-                cartAdapter.Insert(a, b, c);
-                GridView2.DataBind();
-                Response.Redirect("Resultados_Busqueda.aspx");
-            }
+                cartTableTableAdapter cartAdapter = new cartTableTableAdapter();
 
-
-            /*else
-            {
-                //MessageBox.Show(Convert.ToString(GridView1.CurrentCell.Value));
-                string a = GridView1.SelectedRow.Cells[1].Text;
-
-                object[] values = new object[GridView1.Rows[0].Cells.Count];
-                DataTable cartTable;
-
-                for (int i = 0; i < GridView1.Rows[0].Cells.Count; i++)
+                if (GridView1.SelectedRow.Cells[0].Text != null)
                 {
-                    values[i] = GridView1.SelectedRow.Cells[i].Text;
+                    cartTableDataTable productos = cartAdapter.GetData();
+                    GridView2.DataSourceID = "";
+                    GridView2.DataSource = productos;
+                    GridView2.DataBind();
+                    string a = GridView1.SelectedRow.Cells[0].Text;
+                    string b = GridView1.SelectedRow.Cells[1].Text;
+                    string c = GridView1.SelectedRow.Cells[2].Text;
+                    cartAdapter.Insert(a, b, c);
+                    GridView2.DataBind();
+                    //Response.Redirect("Resultados_Busqueda.aspx");
                 }
 
-                cartTable = (DataTable)Session["cartDetails"];
-                cartTable.Rows.Add(values);
-                Session["cartDetails"] = cartTable;
+            }
+            catch (Exception)
+            {
+                GridView1.ToolTip = "select the item you want to add to the cart";
+                throw;
+            }
 
-                DataTable table =(DataTable)Session["cartDetails"];
-                //Session["cartDetails"];
-                GridView2.DataSource = cartTable.DefaultView;
-            }*/
+            
+
+
 
         }
 
         protected void tbSearch2_TextChanged(object sender, EventArgs e)
         {
-            
 
         }
 
@@ -205,6 +175,7 @@ namespace Proyecto_Final_Grupal_Buscador
             
         }
 
+        //Selector handler of GridView 2
         protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             
@@ -237,21 +208,44 @@ namespace Proyecto_Final_Grupal_Buscador
             }
         }
 
+        //button for deleting from cart
         protected void Button3_Click(object sender, EventArgs e)
         {
             cartTableTableAdapter cartAdapter = new cartTableTableAdapter();
-
-            if (!(GridView2.SelectedRow.Cells[0].Text == null))
+            try
             {
-                cartAdapter.DeleteQ(GridView2.SelectedRow.Cells[0].Text);
-                GridView2.DataBind();
-                Response.Redirect("Resultados_Busqueda.aspx");
+                if (GridView2.SelectedRow.Cells[0].Text != null)
+                {
+                    cartAdapter.DeleteQ(GridView2.SelectedRow.Cells[0].Text);
+                    GridView2.DataBind();
+                    //Response.Redirect("Resultados_Busqueda.aspx");
+                }
             }
-            else
+            catch (Exception)
             {
-
+                GridView2.ToolTip = "Select the item you want to delete";
+                throw;
             }
-            
+
+
+            //cartTableTableAdapter cartAdapter = new cartTableTableAdapter();
+            /*try
+            {
+                if (GridView2.SelectedRow.Cells[0].Text != null)
+                {
+                    cartAdapter.Delete(GridView2.SelectedRow.Cells[0].Text);
+                    GridView2.DataBind();
+                    //Response.Redirect("Resultados_Busqueda.aspx");
+                }
+            }
+            catch (Exception)
+            {
+                GridView2.ToolTip = "Select the item you want to delete";
+                throw;
+            }*/
+
+
+
 
         }
     }
