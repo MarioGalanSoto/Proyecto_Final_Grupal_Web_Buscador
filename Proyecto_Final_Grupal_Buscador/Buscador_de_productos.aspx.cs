@@ -15,10 +15,6 @@ namespace Proyecto_Final_Grupal_Buscador
         {
         }
 
-/*        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-                        < input id = "btnBuscar1" runat = "server" type = "Image" src = "BuscadorLogo.png" OnClick = "btnBuscar_Click" class="auto-style1"/>
-        }*/
 
         protected void Button1_Click(object sender, EventArgs e)
         {
