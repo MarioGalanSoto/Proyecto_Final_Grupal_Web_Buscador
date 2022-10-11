@@ -15,13 +15,13 @@ using System.Windows.Forms;
 
 namespace Proyecto_Final_Grupal_Buscador
 {
-    public class CartRow
+/*    public class CartRow
     {
         public string id;
         public string name;
         public string price;
         public string items;
-    };
+    };*/
     
     public partial class Resultados_Busqueda : System.Web.UI.Page
     {
@@ -33,42 +33,43 @@ namespace Proyecto_Final_Grupal_Buscador
             GridView1.DataBind();
 
         }
-        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GridView2.PageIndex = e.NewPageIndex;
-            GridView2.DataBind();
-
-        }
 
         public void Page_Load(object sender, EventArgs e)
         {
-            if (!(Session["busqueda"].ToString() == ""))
+            if (!IsPostBack)
             {
-                tbSearch2.Text = Session["busqueda"].ToString();
-                ProductsDataTable productos = adapter.GetDataByCriterio(tbSearch2.Text);
-                GridView1.DataSourceID = "";
-                GridView1.DataSource = productos;
-                GridView1.DataBind();
-                Session["busqueda"] = "";
+                if (!(Session["busqueda"].ToString() == ""))
+                {
+                    tbSearch2.Text = Session["busqueda"].ToString();
+                    ProductsDataTable productos = adapter.GetDataByCriterio(tbSearch2.Text);
+                    GridView1.DataSourceID = "";
+                    GridView1.DataSource = productos;
+                    GridView1.DataBind();
+                    Session["busqueda"] = "";
 
 
 
+                }
+                else
+                {
+                    ProductsDataTable productos = adapter.GetData();
+                    GridView1.DataSourceID = "";
+                    GridView1.DataSource = productos;
+                    GridView1.DataBind();
+                    Session["busqueda"] = "";
+                }
             }
+            
+               
+            
+            
 
-            else {
-                ProductsDataTable productos = adapter.GetData();
-                GridView1.DataSourceID = "";
-                GridView1.DataSource = productos;
-                GridView1.DataBind();
-                Session["busqueda"] = "";
-            }
-
-            /*Load cart*/
+            /*Load cart*//*
             DataTable cartData = new DataTable();
             cartData.Columns.Add("Product Name", typeof(string));
             cartData.Columns.Add("Unit Price", typeof(string));
             cartData.Columns.Add("Units in stock", typeof(string));
-            Session["cartDetails"] = cartData;
+            Session["cartDetails"] = cartData;*/
 
         }
 
@@ -147,7 +148,8 @@ namespace Proyecto_Final_Grupal_Buscador
                     string c = GridView1.SelectedRow.Cells[2].Text;
                     cartAdapter.Insert(a, b, c);
                     GridView2.DataBind();
-                    //Response.Redirect("Resultados_Busqueda.aspx");
+                    Response.Redirect("Resultados_Busqueda.aspx");
+
                 }
 
             }
@@ -218,7 +220,6 @@ namespace Proyecto_Final_Grupal_Buscador
                 {
                     cartAdapter.DeleteQ(GridView2.SelectedRow.Cells[0].Text);
                     GridView2.DataBind();
-                    //Response.Redirect("Resultados_Busqueda.aspx");
                 }
             }
             catch (Exception)

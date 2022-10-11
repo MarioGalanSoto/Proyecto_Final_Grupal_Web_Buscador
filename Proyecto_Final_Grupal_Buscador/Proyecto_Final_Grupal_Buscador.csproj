@@ -73,6 +73,7 @@
     <Content Include="Buscador_de_productos.aspx" />
     <Content Include="eat-shop-logo.png" />
     <Content Include="eat-shop-icon.png" />
+    <Content Include="paypal pay.png" />
     <Content Include="Resultados_Busqueda.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -92,6 +93,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resultados_Busqueda.aspx.cs">
       <DependentUpon>Resultados_Busqueda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Resultados_Busqueda.aspx.designer.cs">
       <DependentUpon>Resultados_Busqueda.aspx</DependentUpon>

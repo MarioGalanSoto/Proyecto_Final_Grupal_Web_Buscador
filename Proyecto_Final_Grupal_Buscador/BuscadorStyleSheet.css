@@ -6,9 +6,7 @@
 }
 
 .pageContent {
-    /*background-color: khaki;*/
     background-color: #FEF5AC;
-
     text-align:center;
     border-radius: 2rem;
     justify-content: center;
@@ -16,7 +14,7 @@
     width:1000px;
     margin:auto;
     padding: 0 250px;
-    height: 1388px;
+    height: 1968px;
 }
 
 #logoImage {

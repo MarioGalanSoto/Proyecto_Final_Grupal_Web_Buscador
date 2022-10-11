@@ -26,6 +26,7 @@
             background-color: limegreen;
             border: none;
             padding: 20px;
+
         }
 
         #Button3 {
@@ -37,6 +38,14 @@
 
     
 
+        }
+
+
+
+
+        .auto-style2 {
+            width: 500px;
+            height: 210px;
         }
 
 
@@ -74,8 +83,11 @@
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <asp:Button ID="Button2" runat="server" Class="SearchButtons" OnClick="Button2_Click" Text="Add to cart  🛒" />
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
                     <br />
-                    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="556px" HorizontalAlign="Center" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowDataBound="GridView2_RowDataBound" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="832px">
+                    <br />
+                    <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="556px" HorizontalAlign="Center" OnRowDataBound="GridView2_RowDataBound" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="832px">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="ProductName" HeaderText="ProductName" SortExpression="ProductName" />
@@ -100,8 +112,7 @@
             </asp:UpdatePanel>
             <br />
             
-                <ContentTemplate>
-                    <br />
+                <img alt="pay with paypal" class="auto-style2" src="paypal%20pay.png" /><ContentTemplate><br />
                     <br />
                 </ContentTemplate>
             
