@@ -73,6 +73,12 @@
     <Content Include="Buscador_de_productos.aspx" />
     <Content Include="eat-shop-logo.png" />
     <Content Include="eat-shop-icon.png" />
+    <Content Include="LoginPage.aspx" />
+    <Content Include="LoginPageComp\avatar.png" />
+    <Content Include="LoginPageComp\beigeWave.png" />
+    <Content Include="LoginPageComp\eat-shop-logo.png" />
+    <Content Include="LoginPageComp\LoginPageScript.js" />
+    <Content Include="LoginPageComp\LoginPageStyles.css" />
     <Content Include="PagosPayPal.aspx" />
     <Content Include="paypal pay.png" />
     <Content Include="Resultados_Busqueda.aspx" />
@@ -90,6 +96,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EatShopDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PagosPayPal.aspx.cs">
       <DependentUpon>PagosPayPal.aspx</DependentUpon>
