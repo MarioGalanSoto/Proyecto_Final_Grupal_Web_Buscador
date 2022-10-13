@@ -13,6 +13,16 @@ namespace Proyecto_Final_Grupal_Buscador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User"] == null) //if the session didn't start (login didn't happened)
+            {
+                Response.Redirect("LoginPage.aspx"); // go to login page
+            }
+
+        }
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+            Session["User"] = null;
+            Response.Redirect("LoginPage.aspx");
         }
 
 

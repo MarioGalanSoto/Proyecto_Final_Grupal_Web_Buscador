@@ -14,6 +14,12 @@
             height: 100px;
         }
 
+        .logDiv{
+          text-align:right;
+        }
+      
+          
+
         .logoSearchSection{
            /* align-items: center;*/
             text-align: center;
@@ -43,15 +49,7 @@
 
 
 
-        .auto-style2 {
-            width: 500px;
-            height: 210px;
-        }
-
-
-
-
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -59,9 +57,13 @@
             <img alt="Eat-Shop-logo" class="auto-style1" src="eat-shop-logo.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="tbSearch2" CssClass="tbSearch" runat="server" OnTextChanged="tbSearch2_TextChanged"></asp:TextBox>
             <asp:Button ID="Button1" CssClass="SearchButtons" runat="server" OnClick="Button1_Click" Text="Search 🔍" />
+
+            <div class="logDiv">
+                <asp:Button ID="LogOut" CssClass="SearchButtons" Text="LogOut" runat="server" BackColor="Red" ForeColor="White" OnClick="LogOut_Click"/>
+            </div>
         </div>
         <div class="pageContent">
-        <br><br><asp:GridView ID="GridView1" HorizontalAlign="Center" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Height="556px" Width="832px" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDataBound="GridView1_RowDataBound">
+        <br/><br/><asp:GridView ID="GridView1" HorizontalAlign="Center" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Height="556px" Width="832px" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDataBound="GridView1_RowDataBound">
             <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="ProductName" HeaderText="ProductName" SortExpression="ProductName" />
@@ -112,7 +114,12 @@
             </asp:UpdatePanel>
             <br />
             
-                <img alt="pay with paypal" class="auto-style2" src="paypal%20pay.png" /><ContentTemplate><br />
+        <div>
+            </div>
+<input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea." style="height: 73px; width: 260px"><br />
+        <br>
+        <asp:Button ID="BtnPayPal" runat="server" OnClick="BtnPayPal_Click" style="height: 29px" Text="Procesar pago PayPal" />
+            <ContentTemplate><br />
                     <br />
                 </ContentTemplate>
             
@@ -124,3 +131,5 @@
     </form>
 </body>
 </html>
+
+

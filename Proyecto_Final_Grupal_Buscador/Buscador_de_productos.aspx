@@ -8,7 +8,9 @@
         <link rel="stylesheet" href="BuscadorStyleSheet.css"/>
         <link rel="icon" href="eat-shop-icon.png"/>
         <style type="text/css">
-
+            .logDiv{
+                 text-align:right;
+            }
 
   
 
@@ -17,6 +19,9 @@
 
     <body>
             <form id="form1" runat="server">
+                <div class="logDiv">
+                     <asp:Button ID="LogOut" Text="LogOut" runat="server" Class="SearchButtons" BackColor="Red" ForeColor="White" OnClick="LogOut_Click"/>
+                </div>
 
                 <div id="all-container">
 

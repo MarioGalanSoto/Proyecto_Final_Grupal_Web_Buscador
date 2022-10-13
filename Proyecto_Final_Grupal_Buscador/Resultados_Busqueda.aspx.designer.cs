@@ -42,6 +42,15 @@ namespace Proyecto_Final_Grupal_Buscador
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
+        /// LogOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LogOut;
+
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace Proyecto_Final_Grupal_Buscador
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button3;
+
+        /// <summary>
+        /// BtnPayPal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnPayPal;
 
         /// <summary>
         /// SqlDataSource2 control.
